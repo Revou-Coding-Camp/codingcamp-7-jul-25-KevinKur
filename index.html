@@ -1,20 +1,105 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo - Kevin</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Todo List</h1>
-    </header>
-    <main></main>
-    
-    <footer>
-        <span>2025 Kevin. All rights reserved.</span>
-    </footer>
+  <body
+    class="bg-[#fdfbfa] font-sans flex items-center justify-center min-h-screen"
+  >
+    <div
+      class="bg-white rounded-2xl shadow-lg custom-shadow w-full max-w-3xl p-8"
+    >
+      <h1 class="text-3xl font-bold text-center text-purple-900 mb-6">
+        Todo List
+      </h1>
 
-</body>
+      <!-- Notification -->
+      <div
+        id="notification"
+        class="hidden mb-4 text-sm text-white px-4 py-2 rounded-lg"
+      ></div>
+
+      <div class="flex flex-wrap items-center gap-4 mb-4">
+        <input
+          type="text"
+          id="todoInput"
+          placeholder="Add a todo . . ."
+          class="flex-1 border border-pink-300 rounded-full px-4 py-2 focus:outline-none"
+        />
+        <input
+          type="date"
+          id="dueDate"
+          class="border border-pink-300 rounded-full px-4 py-2 focus:outline-none text-gray-600"
+        />
+        <button
+          onclick="addTodo()"
+          class="bg-pink-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500"
+        >
+          +
+        </button>
+      </div>
+
+      <div
+        class="flex justify-between items-center mb-4 text-sm text-purple-900 font-medium"
+      >
+        <div class="flex items-center gap-2">
+          <span>Filter by</span>
+          <button
+            id="filter-all"
+            onclick="filterTodos('all')"
+            class="filter-btn"
+          >
+            All
+          </button>
+          <button
+            id="filter-pending"
+            onclick="filterTodos('pending')"
+            class="filter-btn"
+          >
+            Pending
+          </button>
+          <button
+            id="filter-completed"
+            onclick="filterTodos('completed')"
+            class="filter-btn"
+          >
+            Completed
+          </button>
+        </div>
+        <button
+          onclick="deleteAll()"
+          class="bg-pink-300 text-white px-4 py-2 rounded-full font-bold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-rose-600"
+        >
+          DELETE ALL
+        </button>
+      </div>
+
+      <table class="w-full text-left text-sm">
+        <thead class="bg-gray-100 text-purple-900">
+          <tr>
+            <th class="py-2 px-4 font-bold">TASK</th>
+            <th class="py-2 px-4 font-bold">DUE DATE</th>
+            <th class="py-2 px-4 font-bold">STATUS</th>
+            <th class="py-2 px-4 font-bold">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody id="todoList">
+          <tr>
+            <td colspan="4" class="text-center py-6 text-gray-500">
+              No task found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+  </body>
 </html>

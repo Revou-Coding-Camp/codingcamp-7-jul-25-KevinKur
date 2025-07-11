@@ -1,3 +1,18 @@
-body {
-  background-color: #e21f1f;
+.custom-shadow {
+  box-shadow: 0 10px 30px rgba(100, 100, 150, 0.1);
+}
+.filter-btn {
+  border: 1px solid #d8b4fe; /* Tailwind border-purple-300 */
+  background-color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter-btn:hover {
+  background-color: #f3e8ff; /* Tailwind hover:bg-purple-100 */
+}
+.filter-active {
+  background-color: #e12afb; /* Tailwind bg-purple-300 */
+  color: white;
+  border-color: #e12afb;
 }
